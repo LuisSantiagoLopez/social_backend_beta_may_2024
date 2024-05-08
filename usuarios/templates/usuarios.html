@@ -9,6 +9,7 @@
 <body>
     <h1>Registra un usuario</h1>
     <form id="userForm">
+    {% csrf_token %}
         <input type="text" name="nombre_usuario" placeholder="Username" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
         <input type="password" name="contrasenia" placeholder="Password" required><br>
