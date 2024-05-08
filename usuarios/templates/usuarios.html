@@ -1,0 +1,38 @@
+<!-- templates/usuarios.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Registra un usuario</h1>
+    <form id="userForm">
+        <input type="text" name="nombre_usuario" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="contrasenia" placeholder="Password" required><br>
+        <input type="date" name="cumpleaños" placeholder="Birthday"><br>
+        <button type="submit">Registrar</button>
+    </form>
+    <div id="responseArea"></div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from causing a page refresh
+            var formData = new FormData(this);
+            fetch('/usuarios/registrar_usuario', {  // Ensure this URL matches the one in your Django URLs
+                method: 'POST',
+                body: formData
+            }).then(response => response.json()).then(data => {
+                document.getElementById('responseArea').textContent = 'Status: ' + data.estatus_de_registro;
+                if (data.error) {
+                    document.getElementById('responseArea').textContent += ' (' + data.error + ')';
+                }
+            }).catch(error => {
+                document.getElementById('responseArea').textContent = 'Error submitting form: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
