@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-j$y*v4b%^ip98cgjz!^srl^va2o0k3bb-p)5sll(4*x$pavi8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["64.225.27.116"]
+ALLOWED_HOSTS = ["159.203.79.243", "socialapi.xyz"]
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = "social_django.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "social_database_may2024",
+        "NAME": "social_backend_may_2024",
         "USER": "hpt",
         "PASSWORD": "$rde3esW",
         "HOST": "localhost",
